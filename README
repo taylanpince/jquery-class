@@ -1,0 +1,75 @@
+jQuery Class Plug-in
+====================
+
+This plug-in combines a few tools for building JavaScript applications that
+use proper namespacing and object oriented methodology.
+
+
+jQuery.namespace
+----------------
+
+namespace method provides an easy to ensure the required namespace and all its
+parents are already there. It takes a single argument, a full path to the
+required space, separated by dots. This call will check to make sure all 
+spaces given exist, and if they dont, it will create them:
+
+    $.namespace("core.ProjectName.AppName");
+
+You can combine the namespace method with jQuery's extend, to quickly populate
+a namespace or add new values to it:
+
+    $.extend($("core.ProjectName.AppName"), {
+        media_path : "",
+        
+        init : function() {
+            
+        }
+    });
+
+
+jQuery.Class
+------------
+
+Class is a base class implementation by John Resig. This is simply a copy of
+his solution for object oriented JavaScript applications. More info can be
+found on his web site:
+
+    http://ejohn.org/blog/simple-javascript-inheritance/
+
+Usage is very simple, you just extend the base class:
+
+    core.AppName = $.Class.extend({
+        
+        init : function() {
+            
+        }
+        
+    });
+
+init function is called whenever the class is instantiated.
+
+
+Function Binding
+----------------
+
+This plug-in also adds a bind method to all functions so they can be passed
+around without being called, while maintaining their scope. This comes in 
+handy when you are using the base Class and would like to stay in your 
+instance's scope:
+
+    $.ajax({
+        url : "/path/to/processor",
+        type : "POST",
+        success : this.parse_results.bind(this)
+    });
+
+In this case, when the parse_results method is called, the "this" argument
+will still point to the current scope.
+
+
+Array indexOf Method
+--------------------
+
+This plug-in also "patches" Internet Explorer to make sure it provides an
+indexOf method for arrays. This is a missing feature that was never implemented
+by Microsoft.
