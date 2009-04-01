@@ -1,0 +1,13 @@
+jquery-class-1.0.0BETA
+======================
+
+Tagged on March 31, 2009 by Taylan Pince
+
+
+Features
+--------
+
+* jQuery.namespace plug-in
+* jQuery.Class base class
+* Function binding
+* Array.indexOf method for IE
