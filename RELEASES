@@ -1,3 +1,11 @@
+jquery-class-1.0.1
+==================
+
+Tagged on May 30, 2012 by Taylan Pince
+
+* Added bind function check for browser support to avoid overrides
+
+
 jquery-class-1.0.0BETA
 ======================
 
